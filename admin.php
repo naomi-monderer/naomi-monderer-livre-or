@@ -10,9 +10,7 @@ $infoUsers = mysqli_fetch_all($DataUtilisateurs, MYSQLI_ASSOC);
 
 
 $error = "";
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+
 
 if(isset($_GET['modifier']))
     {
@@ -130,3 +128,6 @@ if (isset($_GET['id']))
 
     </tbody>
 </table>
+<?php
+ require('footer.php');
+?>

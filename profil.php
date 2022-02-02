@@ -1,97 +1,98 @@
 <?php
+// sur la page profil j'affiche en texte mon login actuel, 
+// j'affiche mes 3 champs 
+// je fais une première requete si jamais je veux changer mon login, je dois qd meme retaper les mdp ( dans ma requete jenvoie les champs nouveau login et password)
+// une deuxième requête si jamais je veux changer uniquement les mdp. ( dans ma deuxième requete je dois envoyer le password)
 session_start();
 require('header.php');
+$errorlog='';
 
-$bdd=mysqli_connect('localhost','root','root','livreor');
-mysqli_set_charset($bdd,'utf8');
+$bdd = mysqli_connect('localhost', 'root', 'root', 'livreor');
+mysqli_set_charset($bdd, 'utf8');
 
-$DataUtilisateurs = mysqli_query ($bdd,"SELECT * FROM utilisateurs");
-$infoUsers = mysqli_fetch_all($DataUtilisateurs, MYSQLI_ASSOC);
+$idUser = $_SESSION['user']['id'];
+$req = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE id = '$idUser'");
+$infoUsers = mysqli_fetch_assoc($req);
 
-// echo ('<pre>');
-// var_dump($_SESSION["user"]);
-// echo ('</pre>');
+// echo "<pre>";
+// var_dump($infoUsers);
+// echo "</pre>";
 
-$error = "";
-
-
-
-// if (isset($_SESSION['id']))
 if (isset($_POST['submit']))
 {
-        $login=$_POST['login'];
-        $id= $_SESSION['user'][0]['id'];
-        $password= password_hash($_POST['password'],PASSWORD_BCRYPT);
-        $confirmPassword =$_POST['confirmPassword'];
-        $password1 = $_POST['password'];
-        $password2 = $_POST['confirmPassword'];
+    echo 'yes';
+    $login = $_POST['login'];
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $confirmPassword = $_POST['confirmPassword'];
+    // $password1 = $_POST['password'];
+    // $password2 = $_POST['confirmPassword'];
 
-        $verifyLogin = "SELECT login FROM utilisateurs WHERE id != '$id'";
-        $query = mysqli_query($bdd,$verifyLogin);
-        $result = mysqli_fetch_all($query,MYSQLI_ASSOC);
+    $req = "SELECT * FROM utilisateurs WHERE login = '$login'";
+    $verifyLogin= mysqli_query($bdd, $req);
+    $resultVerifyLogin = mysqli_fetch_all($verifyLogin);
+    
 
-        $isUserExist = false;
-        $listUser = [];
-        foreach($result as $value)
-        {
-            array_push($listUser,$value['login']);
-        //          echo "<pre>";
-        // var_dump($value['login']);
-        // echo "</pre>";   
+    // var_dump($resultVerifyLogin);
+  
 
-        }
-        echo "<pre>";        
-        var_dump($listUser);
-        echo "</pre>";  
-        foreach($listUser  as $user_login){
-                if($user_login == $_POST['login'])
-            {
-                $isUserExist = true;
-            }
-}      
+    if(count($resultVerifyLogin) == 0 )
 
-        if($isUserExist == true){
-            echo "ce login est deja pris";
-        }else{
-            echo "ce login est ok";
-        }
-                if($password1 == $password2 && $isUserExist==false){
-
-                        
-                    
-                    
-                //         echo 'verifier que le login n\'est pas dejà pris';
-                        $_SESSION['user'][0]['login']= $login;
-                        $_SESSION['user'][0]['password']= $password1;
-                        $idUser= $_SESSION["user"][0]["id"];
-                        $requet1 = mysqli_query($bdd,"UPDATE utilisateurs SET login='$login', password='$password' WHERE id=$idUser");
-
-                }
-           
-
-}
-
-
-?>
-
-<form action="" method="post">
-
-<label for="login">Login:</label>
-<input type="text" name="login" value=
-<?php if(isset($_SESSION['user'][0]['login'])){echo $_SESSION['user'][0]['login'];}
-        // else{
-        //     echo $error="ce login est déjà utilisé!";
-        //     }
+    {   
         
-?>>
+        if(!empty($_POST['password']) && !empty($_POST['confirmPassword']))
+        {
+            $password = ($_POST['password']);
+            $confirmPassword = $_POST['confirmPassword'];
 
-<label for="password">Password:</label>
-<input type="password" name="password" value=<?php echo $_SESSION['user'][0]['password'];?>>
+            if ($password == $confirmPassword) 
+            {
+                echo 'yes3';
+                $login =  $_POST['login'];
+                $passwordHash = password_hash($password,PASSWORD_BCRYPT);
+                
+                $req= mysqli_query($bdd, "UPDATE utilisateurs SET login='$login', password='$passwordHash' WHERE id='$idUser'");
+                session_destroy();
+                header('location: connexion.php');
+                
+            }
+            else
+            {
+                $errorlog = "<p class='error'>Les mots de passent doivent être identiques.</p>";
+            }
+        }
+        else
+        {
+            $errorlog = "<p class='error'>veuillez remplir tous les champs.</p>";
+        }
+    }
+    else
+    {
+        $errorlog = "<p class='error'>Ce login est déjà utilisé.</p>";
+    }
 
-<label for="confirmPassword">Confirm your password:</label>
-<input type="password" name="confirmPassword" value=<?php echo $_SESSION['user'][0]['password'];?>>
+}    
+?>
+<main class="l-main-profil">
+    <div class="form-profil">
+        <h1 class="form-titre">MODIFIER  VOTRE PROFIL</h1>
+            <div class=" form-section">
+                <form action="" method="post">
+                    <!-- <label for="login">Login:</label><br/> -->
+                    <input class="form-input-profil" type="text" name="login" placeholder=" Your Login" value=<?php echo " ". $infoUsers['login'];?>>
 
-<input type="submit" name="submit" value="submit">
+                    <!-- <label for="password">Password:</label></br> -->
+                    <input class="form-input-profil" type="password" name="password" placeholder=" Your Password">
 
-</form>
+                    <!-- <label for="confirmPassword">Confirm your password:</label></br> -->
+                    <input class="form-input-profil" type="password" name="confirmPassword" placeholder=" Confirm Your Password" ><br/>
+                    <?php echo $errorlog ?>
 
+                    <input class="form-butt" type="submit" name="submit" value="submit">
+                </form>
+            </div>    
+        </div>    
+    </div>    
+</main>
+<?php
+require('footer.php');
+?>

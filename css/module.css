@@ -1,0 +1,316 @@
+/*-----------HEADER-----------*/
+a {
+    text-decoration: none;
+    color: #24292e;
+  
+  }
+  
+  .inner {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+/* .header .inner {
+    justify-content: space-between; */
+    /* align-items: center;
+  
+    padding: 0 10px;
+  } */
+  
+  .header-title 
+  { display: flex;
+    font-size: 2rem;
+    align-items: center;
+    font-family: 'Mochiy Pop P One', sans-serif;
+   }
+  
+  .header-nav 
+  { 
+    /*  position: fixed; */
+    background: rgb(255, 255, 255);
+    list-style: none;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    /* font-style: bold; */
+    width: 70vw;
+    height: 15vh;
+    
+  
+  }
+  
+  .nav-list
+  {
+    margin-left: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    /* line-height: 32px; */
+    font-family: 'Mulish', sans-serif;
+   
+ }
+ .butt-deco
+  {
+    margin-left: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 32px;
+    font-family: 'Mulish', sans-serif;
+    border: none;
+    background: white;
+    cursor:pointer;
+  }
+ 
+/*-----------/HEADER----------*/
+
+
+/*------------FOOTER---------*/
+ 
+/*------------/FOOTER------*/
+
+
+/*-----------FORM-------*/
+.form
+{   display: flex;
+    justify-content: left;
+    /* background-image: url('../images/OST.jpg'); */
+    background:white;
+    margin:1rem;
+    width: 30%;
+    height: 45vh;
+    
+}
+.form-profil
+{   display: flex;
+    justify-content: right  ;
+    margin:1rem;
+    width: 40%;
+    height: 45vh;
+  
+}
+
+.form-titre
+{ color:royalblue;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+
+}
+.form-section
+{
+  display: flex;
+  flex-direction: column;
+  /* background:lightcoral; */
+  justify-content:flex-end;
+  text-align:right;
+  margin: 1rem;
+
+}
+
+.form-input
+{ height: 1.5rem;
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid #24292e ;
+  outline: #24292e;
+  margin: 0.5rem;
+}
+
+.form-input-profil
+{
+   height: 2rem;
+    width: 80%;
+    border:#24292e;
+    margin: 0.5rem;
+   color:rgb(255, 255, 255);
+    background-color:#24292e;;
+    transition: 0.3s;
+}
+
+.form-input-profil:target
+{
+  color:  white;
+  background-color: #24292eb2;;
+}
+
+.form-butt
+{ 
+  /* display: flex; */
+    border-radius:0;
+    width: 6rem;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    background: white;
+    border: none;
+    padding:0.2rem;
+    transition: 0.3s;
+    border-bottom: rgba(13, 14, 14, 0.911) solid 2px;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.form-butt:hover
+{ 
+  background: royalblue;
+  color: rgb(216, 243, 62);
+  border-bottom: solid 2px royalblue;
+}
+
+.message-index
+{
+  /* background:royalblue;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message-inscription
+{
+  margin-left: 2rem;
+  padding-top:1rem;
+  font-size: 0.8rem;
+}
+
+.lien-inscription
+{
+  text-decoration:underline;
+}
+.lien-inscription:hover
+{
+  font-style: oblique;
+  color:rgb(108, 126, 9);
+  text-decoration:none;
+}  
+/*-----------/FORM-------*/
+
+
+/*--------BUTTON--------*/
+.butt
+{
+    border-radius:0;
+    width: 6rem;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    background: white;
+    border: none;
+    padding:0.5rem;
+    transition: 0.3s;
+    border-bottom: rgba(13, 14, 14, 0.911) solid 2px;
+}
+
+.butt:hover
+{
+    border-radius:0;
+    font-family: 'Mochiy Pop P One', sans-serif;    
+    background: rgba(13, 14, 14, 0.911);
+    border: none;
+    color:white;
+}
+/*--------/BUTTON--------*/
+
+
+/*---------ERROR--------*/
+.error
+{
+  width: 100%;
+  /* display: flex;
+  text-align: right; */
+  font-size: 0.7rem;
+  color:rgb(255, 98, 98);
+  /* background-color: blueviolet; */
+  font-style:italic;
+  
+}
+/*---------/ERROR--------*/
+
+
+/*-----------INDEX--------*/
+.content-index
+{
+  display: grid;
+   grid-template-columns: repeat(4,1fr);
+   grid-template-areas: 
+   "image image image texte";
+}
+
+.texte
+{   margin-left:1rem;
+    margin-right:1rem;
+    background-color: rgb(255, 255, 255);
+    grid-area:"texte";
+}
+
+.titre-index
+{   
+    font-size: 2rem;
+    font-style: italic  ;
+    /* width:100%; */
+}
+.content-index-img
+{   grid-area:"image";
+    
+}
+.the-harder-they-come
+{
+    width: 50rem;
+}
+
+.text-presentation
+{
+  margin-top: 1.5rem;
+}
+/*--------/INDEX-------------*/
+
+/*-----COMMENTAIRES----------*/
+.content-com
+{
+    margin:3rem;
+    /* background-color: rgb(214, 226, 43); */
+    width: 50%;
+    height: 50vh;
+}
+
+/*-----/COMMENTAIRES------*/
+
+
+/*------LIVRE-OR--------*/
+.content-livre-or
+{
+  /* background-color: salmon; */
+  padding-top: 15vh;
+  /* position: fixed; */
+}
+
+.echo-livre-or
+{
+  width: 100%;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.box-livre-or
+{
+  padding: 1rem;
+  background:linear-gradient(90deg, royalblue, white);
+  width: 70%;
+  height: 400vh;
+}
+
+.login-com
+{
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+}
+.com
+{
+  color:white
+}
+.post-com
+{ font-size: 0.8rem;
+  color:white
+}
+.date-com
+{
+  font-size: 0.8rem;
+  color:white
+}
+
+
+/*--------/LIVRE-OR------*/
+

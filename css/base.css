@@ -1,0 +1,47 @@
+*{
+    margin:0;
+    padding:0;
+  }
+body
+{ 
+ 
+}  
+
+main
+{ padding-top: 5.2rem;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+}
+h1
+{
+    font-family:'Mulish', sans-serif;
+    color:rgba(13, 14, 14, 0.911);
+    
+}
+h2{
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color:rgba(13, 14, 14, 0.911);
+}
+p{
+  font-family:'Mulish', sans-serif;
+}
+footer{
+  /* margin: 0;
+  width: 100%;
+  height: 2rem;
+  background-color:royalblue; */
+}
+
+textarea{
+  margin-top:1.5rem;
+  width:30rem;
+  height: 30vh;
+  border:blacK 2px solid;
+  outline:rgb(0, 0, 0);
+  resize: none;
+}
+
+

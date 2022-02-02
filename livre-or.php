@@ -1,44 +1,50 @@
 <?php
 session_start();
 require('header.php');
-
+$title = 'Livre d\'or';
 $bdd=mysqli_connect('localhost','root','root','livreor');
 mysqli_set_charset($bdd,'utf8');
 ?>
 
-
 <?php
-// echo "<div class = 'container'>
-// <h1> LIVRE D'OR </h1>
-// </div>";
-$login= $_SESSION['user']['login'];
 $compteur=0;
 
-    $requete = mysqli_query($bdd,
+
+
+
+    $requete = 
     "SELECT u.id, u.login,c.commentaire,c.date
     FROM `commentaires` AS c 	
     INNER JOIN `utilisateurs` AS u
     ON u.id = c.id_utilisateurs
+    ORDER BY c.date DESC";
     
-    ORDER BY c.date DESC");
-    $lignesTab = mysqli_fetch_all($requete,MYSQLI_ASSOC);
-    echo '<pre>';
-    var_dump($lignesTab);
-    echo '</pre>';
+    $var = mysqli_query($bdd,$requete);
+    $lignesTab = mysqli_fetch_all($var,MYSQLI_ASSOC);
 
-    for($compteur=0;isset($lignesTab[$compteur]);$compteur++)
+      // echo '<pre>';
+      // var_dump($lignesTab);
+      // echo '</pre>';
+?>
+<main>
+<div class="box-livre-or">
+<?php            
+
+  for($compteur=0;isset($lignesTab[$compteur]);$compteur++)
     {
       echo 
-            "</br>" . $lignesTab[$compteur]['login'] . ":" . $lignesTab[$compteur]['commentaire'];
-      echo "<p>Posté le:</p>". $lignesTab[$compteur]['date'] . "</br>";
-      
-    }
-
-   
-  
-   
-
-
+            "<div class='content-livre-or'>
+                  
+                        <div class ='echo-livre-or'>
+                              </br><p class='login-com'>" . $lignesTab[$compteur]['login'] . "</p><p class='com'> " . $lignesTab[$compteur]['commentaire'] . "</p>";
+                  echo "      <p class='post-com'><b>Posté le :</b></p><p class='date-com'><i>". $lignesTab[$compteur]['date'] . "</i></p></br>
+                        </div>
+                  
+            </div>";
+      }
 ?>
-
-
+</div>
+</main>
+<?php
+require('footer.php');
+?>
