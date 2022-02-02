@@ -21,7 +21,11 @@
     display: flex;
     justify-content:flex-end;
     align-items: center;
-    background-color:royalblue;
+    background-color:#24292e;
+    color:white;
+    font-size: 0.8rem;
+    /* background: linear-gradient(to left,
+    white 10%, #24292e 10% 20%, white 20% 30%, #24292e 35% 40%); */
     
     bottom: 0;
     position: fixed;

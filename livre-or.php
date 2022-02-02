@@ -27,23 +27,26 @@ $compteur=0;
       // echo '</pre>';
 ?>
 <main>
-<div class="box-livre-or">
-<?php            
+      
+          
+      <div class="box-livre-or">
+                  <h1 class="">Vos dédicasses à jimmy:</h1>
+            <?php            
 
-  for($compteur=0;isset($lignesTab[$compteur]);$compteur++)
-    {
-      echo 
-            "<div class='content-livre-or'>
-                  
-                        <div class ='echo-livre-or'>
-                              </br><p class='login-com'>" . $lignesTab[$compteur]['login'] . "</p><p class='com'> " . $lignesTab[$compteur]['commentaire'] . "</p>";
-                  echo "      <p class='post-com'><b>Posté le :</b></p><p class='date-com'><i>". $lignesTab[$compteur]['date'] . "</i></p></br>
-                        </div>
-                  
-            </div>";
-      }
-?>
-</div>
+            for($compteur=0;isset($lignesTab[$compteur]);$compteur++)
+            {
+                  echo 
+                        "<div class='content-livre-or'>
+                        
+                                    <div class ='echo-livre-or'>
+                                          </br><p class='login-com'>" . $lignesTab[$compteur]['login'] . "</p><p class='com'> " . $lignesTab[$compteur]['commentaire'] . "</p>";
+                              echo "      <p class='post-com'><b>Posté le :</b></p><p class='date-com'><i>". $lignesTab[$compteur]['date'] . "</i></p></br>
+                                    </div>
+                              
+                        </div>";
+                  }
+            ?>
+      </div>
 </main>
 <?php
 require('footer.php');

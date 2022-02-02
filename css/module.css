@@ -64,7 +64,12 @@ a {
 
 
 /*------------FOOTER---------*/
- 
+/* comment faire pour que mon selecteur de class
+pointe vers l'icone "fa-brands fa-github"?*/
+i 
+{ padding-right: 1rem;
+  color:white;
+}
 /*------------/FOOTER------*/
 
 
@@ -74,7 +79,7 @@ a {
     justify-content: left;
     /* background-image: url('../images/OST.jpg'); */
     background:white;
-    margin:1rem;
+    margin-right:3rem;
     width: 30%;
     height: 45vh;
     
@@ -137,11 +142,11 @@ a {
     border-radius:0;
     width: 6rem;
     font-family: 'Mochiy Pop P One', sans-serif;
-    background: white;
+    background:royalblue;
     border: none;
     padding:0.2rem;
     transition: 0.3s;
-    border-bottom: rgba(13, 14, 14, 0.911) solid 2px;
+    color: white;
     margin: 0.5rem;
     cursor: pointer;
 }
@@ -150,7 +155,7 @@ a {
 { 
   background: royalblue;
   color: rgb(216, 243, 62);
-  border-bottom: solid 2px royalblue;
+  
 }
 
 .message-index
@@ -186,20 +191,22 @@ a {
     border-radius:0;
     width: 6rem;
     font-family: 'Mochiy Pop P One', sans-serif;
-    background: white;
+    background: royalblue;
     border: none;
     padding:0.5rem;
-    transition: 0.3s;
-    border-bottom: rgba(13, 14, 14, 0.911) solid 2px;
+    transition: 0.1s;
+    /* border-bottom: rgba(13, 14, 14, 0.911) solid 2px; */
+    color:white;
 }
 
 .butt:hover
 {
     border-radius:0;
     font-family: 'Mochiy Pop P One', sans-serif;    
-    background: rgba(13, 14, 14, 0.911);
+    background:royalblue;
     border: none;
-    color:white;
+    color:rgb(217, 255, 0);
+    cursor: pointer;
 }
 /*--------/BUTTON--------*/
 
@@ -211,7 +218,7 @@ a {
   /* display: flex;
   text-align: right; */
   font-size: 0.7rem;
-  color:rgb(255, 98, 98);
+  color:rgb(139, 114, 139);
   /* background-color: blueviolet; */
   font-style:italic;
   

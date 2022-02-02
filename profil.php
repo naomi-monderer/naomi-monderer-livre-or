@@ -62,7 +62,7 @@ if (isset($_POST['submit']))
         }
         else
         {
-            $errorlog = "<p class='error'>veuillez remplir tous les champs.</p>";
+            $errorlog = "<p class='error'>Veuillez remplir tous les champs.</p>";
         }
     }
     else

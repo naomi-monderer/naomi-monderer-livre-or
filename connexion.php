@@ -38,14 +38,14 @@ if(isset($_POST["submit"]))
         }
         else
         {
-            $errorLog = "<p class='error'>Le login ou le mot de passe est incorrect.</p>";
+            $errorLog = "<p class='error'>Le login ou le mot de passe est incorrect ♡.</p>";
         }
         
         
     }   
     else
     {
-        $errorLog = "<p class='error'>tous les champs doivent être remplis.</p>";
+        $errorLog = "<p class='error'Ttous les champs doivent être remplis ♡.</p>";
     }
 }
 ?> 

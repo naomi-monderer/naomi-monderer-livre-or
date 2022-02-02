@@ -29,17 +29,17 @@ if(isset($_POST["submit"]))
                         }
                         else
                         {
-                            $errorlog = "<p class='error'>Ce login est déjà utilisé</p>";
+                            $errorlog = "<p class='error'>Ce login est déjà utilisé ♡</p>";
                         }
             }
             else
             {
-                $errorlog = "<p class='error'>Les mots de passes doivent être identiques</p>";
+                $errorlog = "<p class='error'>Les mots de passes doivent être identiques♡</p>";
             }
         }
         else
         {
-            $errorlog = "<p class='error'>tous les champs doivent être remplis</p>";
+            $errorlog = "<p class='error'>Tous les champs doivent être remplis ♡</p>";
         }
 }  
 ?>

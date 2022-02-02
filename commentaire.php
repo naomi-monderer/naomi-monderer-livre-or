@@ -32,9 +32,13 @@ if(isset($_SESSION['user']))
             }
             else
             {
-                $error = 'votre message ne peut pas dépasser 100 caractères';
+                $error = '<p class="error"> Votre message ne peut pas dépasser 100 caractères ♡.</p>';
             }
                 
+        }
+        else
+        {
+            $error='<p class="error">Veuillez remplir le champs du commentaire pour poster un message ♡.</p>';
         }
     }
 }
@@ -50,7 +54,7 @@ if(isset($_SESSION['user']))
    <div class="content-com"> 
         <h2>Laissez une trace de votre passage :</h2>
         <form action="commentaire.php" method="post">
-            <textarea class="textArea" name="message" type="text" placeholder="Message" <?php echo $error ?>></textarea></br>
+            <textarea class="textArea" name="message" type="text" placeholder="Message"></textarea></br>
             <?php echo $error ?></br>
 
             <input class="butt" type="submit" name="submit" value="Envoyer">
